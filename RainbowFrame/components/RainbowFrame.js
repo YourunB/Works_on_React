@@ -14,13 +14,8 @@ class RainbowFrame extends React.Component {
   };
 
   createFrames = () => {
-    let result;
-
-    for (let i = 0; i < this.state.colors.length; i++) {
-      if (i === 0) result = <div className='frame' key={this.state.colors[i]} style={{borderColor:this.state.colors[i]}}><p>{this.props.children}</p></div>;
-      if (i > 0 && i < this.state.colors.length) result = <div className='frame' key={this.state.colors[i]} style={{borderColor:this.state.colors[i]}}>{result}</div>;
-    }
-    
+    let result = this.props.children;
+    for (let i = 0; i < this.state.colors.length; i++) result = <div className='frame' style={{borderColor:this.state.colors[i]}}>{result}</div>;
     return result;
   }
 
