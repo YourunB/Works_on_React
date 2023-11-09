@@ -15,17 +15,20 @@ class RainbowFrame extends React.Component {
     colors: this.props.colors,
   };
 
+  createFrames = () => {
+    let result = [];
+    for (let i = 0; i < this.state.colors.length; i++) {
+      if (i === 0) result.push(<div className='frame' key={this.state.colors[i]} style={{borderColor:this.state.colors[i]}}><p>{this.state.text}</p></div>);
+      if (i > 0 && i < this.state.colors.length) result.push(<div className='frame' key={this.state.colors[i]} style={{borderColor:this.state.colors[i]}}>{result[i-1]}</div>);
+    }
+    return result[this.state.colors.length - 1];
+  }
+
   render() {
 
-    let frame = '';
-
-    this.state.colors.forEach(element => {frame = frame + `<div class='frame' style='border:solid 4px ${element}'>`});
-    frame = frame + `<p class='frame__text'>${this.state.text}</p>`;
-    this.state.colors.forEach(element => {frame = frame + '</div>'});
-
     return (
-      <div dangerouslySetInnerHTML={{__html: frame}}>
-  
+      <div>
+        {this.createFrames()}
       </div>
     );
   }
