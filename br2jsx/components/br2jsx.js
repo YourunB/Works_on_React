@@ -15,16 +15,25 @@ class Br2jsx extends React.Component {
 
   divRef = null;
 
-  splitTags = ref => {
-    const container = document.createElement('div');
-    container.innerHTML = this.state.text;
-    ref.append(container);
+  splitTags = () => {
+    let tag = <br></br>
+    let arrNoTags = this.state.text.split('<br>').join(' ').split('<br/>').join(' ').split(' ');
+    let arrWithTags = [];
+
+    for (let i = 0; i < arrNoTags.length; i++) {
+      tag = <br key={i}></br>
+      arrWithTags.push(arrNoTags[i]);
+      if (i !== arrNoTags.length - 1) arrWithTags.push(tag);
+    }
+
+    return arrWithTags;
   }
 
   render() {
 
     return (
-      <div className='box' ref={this.splitTags}>
+      <div className='box' >
+        {this.splitTags()}
       </div>
     );
   }
