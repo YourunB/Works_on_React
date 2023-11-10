@@ -16,7 +16,7 @@ class Br2jsx extends React.Component {
   divRef = null;
 
   splitTags = () => {
-    let arrNoTags = this.state.text.split('<br>').join('<br/>').split('<br/>');
+    let arrNoTags = this.state.text.split(/<br\s*\/?>|<\/br\s*>/);
     let arrWithTags = [];
     
     for (let i = 0; i < arrNoTags.length; i++) {
