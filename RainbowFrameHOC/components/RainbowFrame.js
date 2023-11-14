@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './RainbowFrame.css';
 
@@ -14,12 +13,6 @@ class RainbowFrame extends React.Component {
 
   changeBtn = (n) => {
     this.setState( {btn: n} )
-  }
-
-  createFrames = () => {
-    let result = this.props.children;
-    for (let i = 0; i < this.props.colors.length; i++) result = <div className='frame' style={{borderColor:this.props.colors[i]}}>{result}</div>;
-    return result;
   }
 
   render() {
