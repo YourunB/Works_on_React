@@ -42,13 +42,15 @@ class MobileCompany extends React.PureComponent {
 
       for (let i = 0; i < newClients.length; i++) {
         if (newClients[i].id === client.id) {
-          newClients[i].fam = client.fam;
-          newClients[i].im = client.im;
-          newClients[i].otch = client.otch;
-          newClients[i].balance = client.balance;
-          this.setState( {clients: newClients} )
+          const newClient = {...newClients[i]}
+          newClient.fam = client.fam;
+          newClient.im = client.im;
+          newClient.otch = client.otch;
+          newClient.balance = client.balance;
+          newClients[i] = newClient;
         }
       }
+      this.setState( {clients: newClients} )
 
     } else {
 
