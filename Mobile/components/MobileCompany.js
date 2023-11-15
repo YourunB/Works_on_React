@@ -54,9 +54,7 @@ class MobileCompany extends React.PureComponent {
 
     } else {
 
-      const allId = [];
-      newClients.forEach(el => allId.push(el.id))
-      const newId = Math.max(...allId) + 1;
+      const newId = Math.max( ... newClients.map( client => client.id ) )+1
 
       const newClient = {
         id: newId,
