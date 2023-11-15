@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import PropTypes, { element } from 'prop-types';
+import PropTypes, { element, func } from 'prop-types';
 
 import './MobileCompany.css';
 
@@ -104,27 +104,16 @@ class MobileCompany extends React.PureComponent {
   render() {
 
     const clientsCode=this.state.clients.map( el => {
-        if (this.state.sort === 'all') {
+        function resultClient (el) {
           let client={id:el.id, fam:el.fam, im:el.im, otch:el.otch, balance:el.balance};
           return <MobileClient
             client={client}
             key={el.id}
           />;
         }
-        if (this.state.sort === 'blocked' && el.balance < 0) {
-          let client={id:el.id, fam:el.fam, im:el.im, otch:el.otch, balance:el.balance};
-          return <MobileClient
-            client={client}
-            key={el.id}
-          />;
-        }
-        if (this.state.sort === 'active' && el.balance > 0) {
-          let client={id:el.id, fam:el.fam, im:el.im, otch:el.otch, balance:el.balance};
-          return <MobileClient
-            client={client}
-            key={el.id}
-          />;
-        }
+        if (this.state.sort === 'all') return resultClient(el);
+        if (this.state.sort === 'blocked' && el.balance < 0) return resultClient(el);
+        if (this.state.sort === 'active' && el.balance > 0) return resultClient(el);
       }
     );
 
