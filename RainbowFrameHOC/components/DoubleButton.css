@@ -16,15 +16,8 @@
   margin: 5px;
   padding: 5px;
   border: solid 2px white;
-  animation: add 1.5s;
-  border: solid 4px white;
   border-radius: 2px;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
-  transition: 1s;
-}
-
-.frame:hover {
-  transform: scale(1.02);
 }
 
 button {
