@@ -105,7 +105,7 @@ class MobileCompany extends React.PureComponent {
 
     const clientsCode=this.state.clients.map( el => {
         function resultClient (el) {
-          let client={id:el.id, fam:el.fam, im:el.im, otch:el.otch, balance:el.balance};
+          let client=el;
           return <MobileClient
             client={client}
             key={el.id}
