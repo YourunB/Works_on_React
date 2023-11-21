@@ -1,0 +1,113 @@
+
+.FilterHook {}
+
+body {
+  background: #005C97;
+  background: linear-gradient(to right, #363795, #005C97);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #005C97;
+}
+
+span {
+  font-size: 20px;
+  margin-left: 5px;
+  color: rgb(190, 190, 0);
+}
+
+input {
+  background: none;
+  outline: none;
+  border: none;
+  border-bottom: solid 2px #005C97;
+  margin: 0 5px 0 5px;
+  color: rgb(190, 190, 0);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+input[type='checkbox'] {display: none;}
+
+label {
+  position: relative;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border: solid 2px #005C97;
+  border-radius: 3px;
+  transition: 1s;
+  cursor: pointer;
+}
+
+label:hover {
+  transform: scale(1.1);
+}
+
+label:before {
+  position: absolute;
+  content: " ";
+  color: white;
+  font-size: 30px;
+  top: -14px;
+}
+
+input:checked + label {
+  background: #005C97;
+}
+input:checked + label:before {
+   content: "\2713";
+}
+
+button {
+  background: white;
+  border-radius: 3px;
+  border: solid 1px #005C97;
+  color: #005C97;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 400px;
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+  border: solid 2px white;
+  overflow: hidden;
+  animation: show 2s forwards;
+}
+
+textarea:disabled {
+  background: white;
+  color: #005C97;
+  border: none;
+  resize: none;
+  font-weight: 700;
+  font-size: 20px;
+  transform: translate(-100%);
+  animation: slide 1s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes show {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes slide {
+  0% {transform: translate(-100%);}
+  100% {transform: translate(0);}
+}
