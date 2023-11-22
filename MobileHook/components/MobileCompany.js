@@ -99,11 +99,8 @@ export default props => {
       return <MobileClient
         client={client}
         key={el.id}
-      />;
-    }
-    if (sort === 'all') return resultClient(el);
-    if (sort === 'blocked' && el.balance < 0) return resultClient(el);
-    if (sort === 'active' && el.balance > 0) return resultClient(el);
+      />;}
+    if ( sort === 'all' || (sort === 'blocked' && el.balance < 0) || (sort === 'active' && el.balance > 0) ) return resultClient(el);
   });
 
     const add = <tr>

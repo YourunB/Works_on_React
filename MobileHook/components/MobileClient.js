@@ -1,10 +1,10 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useRef } from 'react';
 
 import "./MobileClient.css";
 
 import {clientEvents} from './events';
 
-export default props => {
+const MobileClient = props => {
 
   const [editing, setEditing] = useState(false);
 
@@ -52,3 +52,5 @@ export default props => {
     </tr>
   );
 };
+
+export default React.memo(MobileClient);
