@@ -18,8 +18,6 @@ export default props => {
   const inputBalance = useRef(null); 
 
   useEffect( () => {
-    clientEvents.addListener('EclientSave', clientSave);
-    clientEvents.addListener('EclientEdit', clientEdit);
     clientEvents.addListener('EclientDelete', clientDelete);
   }, [clients] );
 
