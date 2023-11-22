@@ -94,13 +94,13 @@ export default props => {
   }
 
   const clientsCode = clients.map( el => {
-    function resultClient (el) {
-      let client=el;
+      let client = el;
+      if ( sort === 'all' || (sort === 'blocked' && el.balance < 0) || (sort === 'active' && el.balance > 0) ) {
       return <MobileClient
         client={client}
         key={el.id}
-      />;}
-    if ( sort === 'all' || (sort === 'blocked' && el.balance < 0) || (sort === 'active' && el.balance > 0) ) return resultClient(el);
+      />;
+    }
   });
 
     const add = <tr>
